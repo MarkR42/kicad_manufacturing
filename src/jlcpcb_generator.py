@@ -28,7 +28,10 @@ def make_unique_reference(ref):
     if ref in seen_references:
         # Handle non-unique case
         alpha, num = split_reference(ref)
-        num = int(num)
+        try:
+            num = int(num)
+        except ValueError:
+            num = 1
         for increment in range(100,5000,100):
             unique_ref = alpha + str(num + increment)
             if unique_ref not in seen_references:
