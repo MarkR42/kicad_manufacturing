@@ -114,7 +114,9 @@ def write_pos(fptuples, rotations):
             rot += rotation
             layer = 'Top'
             if fp.layer.startswith('B'):
-                layer='Bottom'
+                layer = 'Bottom'
+                # Negate rotation because jlc
+                rot = - rot
             print('"{}","{}","{}","{}","{}"'.format(
                 fp.unique_reference, x,y, layer, rot
                 ),
